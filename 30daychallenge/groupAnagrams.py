@@ -15,8 +15,6 @@
 #     All inputs will be in lowercase.
 #     The order of your output does not matter.
 
-import collections
-
 class Solution:
     def groupAnagrams(self, strs: [str]) -> [[str]]:
         all_groups = []
