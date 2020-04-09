@@ -16,3 +16,7 @@ Problems from https://leetcode.com/ to keep my programming skills sharp :)
 ## Linked Lists
 
 * [Middle of the Linked List](https://leetcode.com/explore/other/card/30-day-leetcoding-challenge/529/week-2/3290/)
+
+## Strings
+
+* [Backspace String Compare](https://leetcode.com/explore/other/card/30-day-leetcoding-challenge/529/week-2/3291/)
