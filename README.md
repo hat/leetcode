@@ -12,6 +12,7 @@ Problems from https://leetcode.com/ to keep my programming skills sharp :)
 * [Move Zeroes](https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3286/)
 * [Best Time to Buy and Sell Stock II](https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3287/)
 * [Group Anagrams](https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3288/)
+* [Last Stone Weight](https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/529/week-2/3297/)
 
 ## Linked Lists
 
@@ -20,3 +21,7 @@ Problems from https://leetcode.com/ to keep my programming skills sharp :)
 ## Strings
 
 * [Backspace String Compare](https://leetcode.com/explore/other/card/30-day-leetcoding-challenge/529/week-2/3291/)
+
+## Stacks
+
+* [Min Stack](https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/529/week-2/3292/)
