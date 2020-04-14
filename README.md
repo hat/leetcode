@@ -21,6 +21,7 @@ Problems from https://leetcode.com/ to keep my programming skills sharp :)
 ## Strings
 
 * [Backspace String Compare](https://leetcode.com/explore/other/card/30-day-leetcoding-challenge/529/week-2/3291/)
+* [Perform String Shifts](https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/529/week-2/3299/)
 
 ## Stacks
 
