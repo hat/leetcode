@@ -16,20 +16,36 @@
 # TODO take return False out of main loop - only one return statement in a function
 
 class Solution:
-    def isHappy(self, n: int) -> bool:
-        all_nums = []
-        while n != 1:
-            string_num = str(n)
-            new_answer = 0
-            for num in string_num:
-                #print(f"cur: {num}")
-                new_answer += int(num) ** 2
-            if n in all_nums:
+
+    def isHappyFromMemory(self, n: int) -> bool:
+        squares = []
+        solution = 0
+        while solution != 1:
+            solution = 0
+            for num in str(n):
+                solution += int(num) ** 2
+            if solution in squares:
                 return False
-            all_nums.append(n)
-            n = new_answer
-            #print(f"answer: {n}")
-        return bool(n)
+            squares.append(solution)
+            n = solution
+        return True
+
+    def isHappy(self, n: int) -> bool:
+        loop_list = []
+        while n != 1:
+            new_num = 0
+            for num in str(n):
+                new_num += int(num) ** 2
+            n = new_num
+            if new_num in loop_list:
+                return False
+            loop_list.append(new_num)
+
+        return True
     
 solution = Solution()
-print(solution.isHappy(12))
+print(solution.isHappyFromMemory(19))
+
+
+# ans = Solution().isHappy(7)
+# print(ans)

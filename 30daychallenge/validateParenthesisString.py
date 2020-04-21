@@ -43,16 +43,40 @@ class Solution:
             or paren_stack.count(' ') == paren_stack.count(')') + paren_stack.count('(')\
             else False
 
+    def checkValidString2(self, s: str) -> bool:
+        left_balance, right_balance = 0, 0
+        for i in range(0,len(s)):
+            if s[i] in "(*":
+                left_balance += 1
+            else:
+                left_balance -= 1
+            if s[len(s) - i - 1] in ')*':
+                right_balance += 1
+            else:
+                right_balance -= 1
+            if left_balance < 0 or right_balance < 0:
+                return False
+        
+        return True
+
 answer = Solution()
 # ans = answer.checkValidString("(*))") # True
 # print(ans)
+# ans = answer.checkValidString2("(*))") # True
+# print(ans)
 # ans = answer.checkValidString("(*)") # True
+# print(ans)
+# ans = answer.checkValidString2("(*)") # True
 # print(ans)
 # ans = answer.checkValidString("(*()") # True
 # print(ans)
+ans = answer.checkValidString2("(*()") # True
+print(ans)
 # ans = answer.checkValidString("(")# False
 # print(ans)
+ans = answer.checkValidString2("(")# False
+print(ans)
 # ans = answer.checkValidString("*()(())*()(()()((()(()()*)(*(())((((((((()*)(()(*)")# False
 # print(ans)
-ans = answer.checkValidString("(())((())()()(*)(*()(())())())()()((()())((()))(*")
+ans = answer.checkValidString2("(())((())()()(*)(*()(())())())()()((()())((()))(*")
 print(ans)
