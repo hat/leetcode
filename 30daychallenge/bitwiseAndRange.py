@@ -14,12 +14,12 @@ import math
 
 class Solution:
     def rangeBitwiseAnd(self, m: int, n: int) -> int:
-        solution = 0
+        solution = m
         
         if m == 0:
             return 0
-        if math.log(m, 2) != math.log(n, 2):
+        if int(math.log(m, 2)) != int(math.log(n, 2)):
             return 0
-        for num in range(m, n - 1):
-            solution += num & num + 1
+        for num in range(m + 1, n + 1):
+            solution &= num
         return solution
