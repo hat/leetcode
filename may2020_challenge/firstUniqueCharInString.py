@@ -19,7 +19,7 @@ class Solution:
             if s.count(char) == 1:
                 return s.find(char)
         return -1
-    
+
     def hashMap(self, s: str) -> int:
         chars = {}
         for char in s:
