@@ -13,51 +13,19 @@
 
 # Check top and bottom
 class Solution:
-    def checkRight(self, image: [[int]], sr: int, sc: int, newColor: int, curColor:int):
-        while sc >= 0:
-            if image[sr][sc] == curColor:
-                image[sr][sc] = newColor
-            else:
-                if sr > 0 and image[sr][sc] == curColor:
-                    if image[sr - 1][sc] == curColor:
-                        image[sr][sc] = newColor
-                if sr < len(image[0]) and image[sr][sc] == curColor:
-                    if image[sr + 1][sc] == curColor:
-                        image[sr][sc] = newColor
-            sc -= 1
-        return image
-        
-    
-    def checkLeft(self, image: [[int]], sr: int, sc: int, newColor: int, curColor:int):
-        while sc < len(image[0]):
-            if image[sr][sc] == curColor:
-                    image[sr][sc] = newColor
-            else:
-                if sr > 0 and image[sr][sc] == curColor:
-                    if image[sr - 1][sc] == curColor:
-                        image[sr][sc] = newColor
-                if sr < len(image[0]) and image[sr][sc] == curColor:
-                    if image[sr + 1][sc] == curColor:
-                        image[sr][sc] = newColor
-            sc += 1
-        return image
-        
-    
     def floodFill(self, image: [[int]], sr: int, sc: int, newColor: int) -> [[int]]:
-        tmp_sr, tmp_sc = sr, sc
-        cur_color = image[sr][sc]
-        while tmp_sr >= 0:
-            tmp_sc = sc
-            image = self.checkLeft(image, tmp_sr, tmp_sc, newColor, cur_color)
-            tmp_sc = sc
-            image = self.checkRight(image, tmp_sr, tmp_sc - 1, newColor, cur_color)
-            tmp_sr -= 1
-        while tmp_sr < len(image):
-            tmp_sc = sc
-            image = self.checkLeft(image, tmp_sr, tmp_sc, newColor, cur_color)
-            tmp_sc = sc
-            image = self.checkRight(image, tmp_sr, tmp_sc - 1, newColor, cur_color)
-            tmp_sr += 1
+        R, C = len(image), len(image[0])
+        color = image[sr][sc]
+        if color == newColor: return image
+        def dfs(r, c):
+            if image[r][c] == color:
+                image[r][c] = newColor
+                if r >= 1: dfs(r-1, c)
+                if r+1 < R: dfs(r+1, c)
+                if c >= 1: dfs(r, c-1)
+                if c+1 < C: dfs(r, c+1)
+
+        dfs(sr, sc)
         return image
 
 
