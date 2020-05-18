@@ -14,6 +14,7 @@ class Solution:
         i = 0
         if len(s1) > len(s2):
             return False
+        
         while i < len(s2):
             if s2[i] in s1:
                 temp_arr = [char for char in s1]
@@ -28,6 +29,22 @@ class Solution:
             i = i + 1
         return False
 
+    def checkInclusionOptimized(self, s1: str, s2: str) -> bool:
+        
+        s1_map = [0] * 26
+        s2_map = [0] * 26
+
+        for char in s1:
+            s1_map[ord(char) - 97] += 1 # s1_map[ord(char) - 97] + 1
+
+        for index, char in enumerate(s2):
+            s2_map[ord(char) - 97] += 1
+            if index >= len(s1):
+                s2_map[ord(s2[index - len(s1)]) - 97] -= 1
+            if index >= len(s1) - 1 and s1_map == s2_map:
+                return True
+        return False
+
 answer = Solution()
 print(answer.checkInclusion("adc", "dcda"))
 
@@ -38,10 +55,10 @@ class TestSolution:
         self.answer = Solution()
 
     def test_one(self):
-        assert self.answer.checkInclusion("hello", "ooolleoooleh") == False
+        assert self.answer.checkInclusionOptimized("hello", "ooolleoooleh") == False
     
     def test_two(self):
-        assert self.answer.checkInclusion(s1 = "ab", s2 = "eidbaooo") == True
+        assert self.answer.checkInclusionOptimized(s1 = "ab", s2 = "eidbaooo") == True
     
     def test_three(self):
-        assert self.answer.checkInclusion("adc", "dcda") == True
+        assert self.answer.checkInclusionOptimized("adc", "dcda") == True
