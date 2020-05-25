@@ -12,8 +12,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-from collections import deque
-
 class Solution:
     def _helper(self, node: TreeNode, k: int, kth):
         if node.left != None:
